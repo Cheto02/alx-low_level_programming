@@ -2,8 +2,8 @@
 #include <string.h>
 /**
  * rev_string - a function that reverses a string
- * @s - string to be printed
- * Return: 0
+ * @s: string to be printed
+ * Return: String in reverse
  */
 
 void rev_string(char *s)
