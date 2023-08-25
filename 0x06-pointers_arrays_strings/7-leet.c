@@ -32,3 +32,14 @@ char *leet(char *str)
 	return (str);
 }
 
+/**
+ * main - program entry point
+ * Return: 0 on success
+ */
+int main(void)
+{
+	char str[] = "Talk is cheap. Show me the code.";
+
+	printf("%s\n", leet(str));
+	return (0);
+}
