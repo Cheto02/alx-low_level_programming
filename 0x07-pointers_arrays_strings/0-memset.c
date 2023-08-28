@@ -1,12 +1,12 @@
-#include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
 /**
- * _memset - fill the first n bytes of the memory area pointed to
+ * main- program entry point
+ * _memset- fill the first n bytes of the memory area pointed to
  * @n: bytes of the memory area
  * @b: the constant byte
  * @s: memory area
- * main - program entry point
- * Return: a pointer to s
+ * Return: ptr
  */
 
 char *_memset(char *s, char b, unsigned int n)
