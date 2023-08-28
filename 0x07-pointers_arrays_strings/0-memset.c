@@ -1,34 +1,21 @@
-#include <stdlib.h>
-#include <string.h>
+#include "main.h"
 /**
- * main- program entry point
- * _memset- fill the first n bytes of the memory area pointed to
- * @n: bytes of the memory area
- * @b: the constant byte
- * @s: memory area
- * Return: ptr
+ * _memset - fill a block of memory with a specific value
+ * @s: starting address of memory to be filled
+ * @b: the desired value
+ * @n: number of bytes to be changed
+ *
+ * Return: changed array with new value for n bytes
  */
-
 char *_memset(char *s, char b, unsigned int n)
 {
-	char *ptr = s;
-	unsigned int i;
+	int i = 0;
 
-	for (i = 0; i < n;)
+	for (; n > 0; i++)
 	{
-		*s = b;
-		s++;
-		i++;
+		s[i] = b;
+		n--;
 	}
-	return (ptr);
+	return (s);
 }
-int main(void)
-{
-	char str[20] = "Hello, World!";
-	unsigned int n = 7;
 
-	printf("Before memset: %s\n", str);
-	_memset(str, 'b', n);
-	printf("After memset: %s\n", str);
-	return (0);
-}
