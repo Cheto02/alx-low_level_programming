@@ -3,7 +3,6 @@
  * main- a program that prints all arguments it receives.
  * @argc:argument count param
  * @argv:argument vector param
- * @i: integer variable
  *
  * Return:0 on success
  */
