@@ -1,7 +1,5 @@
 #include "main.h"
 /**
- * is_prime_number- a function that returns 1 if the input integer is a prime
- * number.
  * is_prime_helper- a function that check whether a number is prime
  * @n: number to evaluate
  * @divisor: checking for divisibility
@@ -23,6 +21,13 @@ int is_prime_helper(int n, int divisor)
 	}
 		return (is_prime_helper(n, divisor - 1));
 }
+
+/**
+ * is_prime_number- a function that returns 1 if the input integer is prime
+ * @n: number to evaluate
+ *
+ * Return: 1 if n is a prime number, 0 if not.
+ */
 
 int is_prime_number(int n)
 {
