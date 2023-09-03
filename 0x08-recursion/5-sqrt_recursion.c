@@ -17,7 +17,14 @@ int _sqrt_recursion(int n)
 	else
 	return (find_sqrt(n, 1));
 }
-/* @find_sqrt- a function that recursively finds the square root*/
+
+/**
+ * find_sqrt - a function that recursively finds the square root
+ * @n: number to calculate the square root of.
+ * @guess: random number
+ *
+ * Return: -1
+ */
 
 int find_sqrt(int n, int guess)
 {
