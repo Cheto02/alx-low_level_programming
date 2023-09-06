@@ -11,19 +11,20 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-	char *p;
+	char *p;// pointer to iterate over string accept
 
-	while (*s)
+	while (*s)// iterate over each character in string s
 	{
-	p = accept;
-	while (*p)
+	p = accept;// reset p to the beginning of string accept
+	while (*p)// iterate over each character in string accept
 	{
-		if (*s == *p)
-		return (s);
-		p++;
+		if (*s == *p)// if the current character in s matches the current
+			//character in accept
+		return (s);// return a pointer to the current character in s
+		p++;// move to the next character in string accept
 	}
-	s++;
+	s++;// move to the next character in string s
 	}
-	return (NULL);
+	return (NULL);// return NULL if no match is found
 }
 
