@@ -6,17 +6,18 @@
  *
  *Return: the pointer to the newly created array
  */
-
 int *array_range(int min, int max)
 {
-	int size = max - min + 1;
-	int *arr = malloc(size * sizeof(int));
-	int i;
+	int size, i;
+	int *arr;
 
 	if (min > max)
 	{
 	return (NULL);
 	}
+
+	size = max - min + 1;
+	arr = malloc(size * sizeof(int));
 
 	if (arr == NULL)
 	{
@@ -27,6 +28,7 @@ int *array_range(int min, int max)
 	{
 	arr[i] = min++;
 	}
+
 	return (arr);
 }
 
