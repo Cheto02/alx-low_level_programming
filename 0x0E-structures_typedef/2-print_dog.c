@@ -5,7 +5,7 @@
  * print_dog - Prints the contents of a struct dog
  * @d: Pointer to the struct dog variable to print
  *
- * Description: This function prints the name, age, and owner of the struct dog.
+ * Description: The function prints name, age, and owner of the struct dog.
  * If any of the elements in the struct are NULL, it will print "(nil)"
  * instead of the element.
  */
