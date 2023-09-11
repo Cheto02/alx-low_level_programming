@@ -6,7 +6,8 @@
  * @d: A pointer to the dog_t structure to be freed.
  *
  * This function checks if the pointer 'd' is not NULL. If it isn't NULL,
- * it frees the memory allocated for the 'name', 'owner', and the structure itself.
+ * it frees the memory allocated for the 'name', 'owner', and the
+ * structure itself.
  * This ensures that all dynamically allocated memory is properly freed.
  * Remember to call this function when you're done with your dog_t structure.
  *
