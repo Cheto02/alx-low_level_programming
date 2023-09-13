@@ -27,7 +27,7 @@ int main(int argc, char **argv) /* Define main function */
 	}
 
 	for (i = 0; i < n; i++) /* Loop from 0 to n-1 */
-	printf("%02x ", ((unsigned char *)main)[i]); /* Print opcode in hexadecimal format */
+	printf("%02x ", ((unsigned char *)main)[i]); /* Print opcode in hex format */
 
 	printf("\n"); /* Print new line */
 
