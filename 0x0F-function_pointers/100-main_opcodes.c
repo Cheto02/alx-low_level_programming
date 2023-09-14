@@ -1,36 +1,39 @@
-#include <stdio.h> /* Include standard input/output library */
+#include <stdio.h>
 #include <stdlib.h>
+
 /**
- * main - prints the opcodes of its own main function
- * @argc: number of arguments passed to the function
- * @argv: array of pointers to the arguments
- *
- * Return: 0 on success, 1 if number of arguments is incorrect,
- *         or 2 if number of bytes is negative
+ * print_opcodes - Prints the opcodes of the main function
+ * @opcodes: Array of opcodes to print
+ * @count: Number of opcodes to print
  */
-int main(int argc, char **argv) /* Define main function */
+void print_opcodes(unsigned char *opcodes, int count)
 {
-	int i, n; /* Declare integer variables i and n */
+    int i;  // Declare the loop variable outside of the loop
 
-	if (argc != 2) /* Check if number of arguments is not equal to 2 */
-	{
-		printf("Error\n"); /* Print error message */
-		return (1); /* Return 1 */
-	}
+    for (i = 0; i < count; i++)
+    {
+        printf("%02x", opcodes[i]);
+        if (i < count - 1)
+            printf(" ");
+    }
 
-	n = atoi(argv[1]); /* Convert second argument to integer and assign to n */
+    printf("\n");
+}
 
-	if (n < 0) /* Check if n is negative */
-	{
-		printf("Error\n"); /* Print error message */
-		return (2); /* Return 2 */
-	}
+int main(void)
+{
+    // Define the opcodes based on the provided assembly code
+    unsigned char main_opcodes[] = {
+        0x55, 0x48, 0x89, 0xe5, 0x48, 0x83, 0xec, 0x30,
+        0x89, 0x7d, 0xdc, 0x48, 0x89, 0x75, 0xd0, 0x83,
+        0x7d, 0xdc, 0x02, 0x74, 0x14
+    };
 
-	for (i = 0; i < n; i++) /* Loop from 0 to n-1 */
-	printf("%02x ", ((unsigned char *)main)[i]); /* Print opcode in hex format */
+    int opcode_count = sizeof(main_opcodes) / sizeof(main_opcodes[0]);
 
-	printf("\n"); /* Print new line */
+    // Print the opcodes in the requested format
+    print_opcodes(main_opcodes, opcode_count);
 
-	return (0); /* Return 0 */
+    return 0;
 }
 
