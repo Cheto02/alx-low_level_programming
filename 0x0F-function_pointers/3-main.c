@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include "3-calc.h"
 
 /**
  * main- Entry point of the program
  * @argc: Number of command line arguments
- * @argv :Array of command line arguments
+ * @argv: Array of command line arguments
  *
- * Return :0 on success
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
@@ -39,7 +37,7 @@ int main(int argc, char *argv[])
 	result = func(num1, num2);
 	/*Print the result*/
 	printf("%d\n", result);
-		/*Return 0 to indicate successful execution*/
+	/*Return 0 to indicate successful execution*/
 		return (0);
 }
 
