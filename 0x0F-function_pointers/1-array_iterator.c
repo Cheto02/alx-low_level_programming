@@ -22,8 +22,9 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 	if (array == NULL || action == NULL)
 	return;
 
-	/* We go through each number in
-	 * our list (that’s what for (i = 0; i < size; i++)
+	/**
+	 * We go through each number in
+	 * our list (for (i = 0; i < size; i++)
 	 */
 	for (i = 0; i < size; i++)
 	/* for each number, we do our special trick on it (action(array[i]))*/
