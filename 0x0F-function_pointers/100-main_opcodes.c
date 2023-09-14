@@ -1,5 +1,5 @@
 #include <stdio.h> /* Include standard input/output library */
-
+#include <stdlib.h>
 /**
  * main - prints the opcodes of its own main function
  * @argc: number of arguments passed to the function
