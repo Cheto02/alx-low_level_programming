@@ -1,11 +1,14 @@
 #include "3-calc.h"
 #include <string.h>
-/*
- * Define an array of operation structures, each containing an operator string
- * and a pointer to the corresponding operation function
+
+/**
+ * get_op_func - Function to get the operation function pointer based
+ * on operator string
+ * @op: Operator string
+ *
+ * Return: Pointer to corresponding operation function
  */
 
-/* Function to get the operation function pointer based operator string */
 int (*get_op_func(char *op))(int, int)
 {
 	op_t ops[] = {
