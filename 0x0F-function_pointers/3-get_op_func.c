@@ -1,50 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "3-calc.h"
 
 /**
- * get_op_func - Function to get the operation function pointer based
- * on operator string
- * @op: Operator string
+ * get_op_func - Function that selects the correct function to perform
+ * the operation asked by the user.
  *
- * Return: Pointer to corresponding operation function
+ * @s: The operator passed as argument to the program.
+ *
+ * Return: Pointer to the function that corresponds to the operator given
+ * as a parameter. NULL if no such function exists.
  */
-
-int (*get_op_func(char *op))(int, int)
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
-	{"+", op_add},/* Addition operation */
-	{"-", op_sub},/* Subtraction operation */
-	{"*", op_mul},/* Multiplication operation */
-	{"/", op_div},/* Division operation */
-	{"%", op_mod},/* Modulo operation */
-	{NULL, NULL} /* End of the array */
-
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
 	};
-	/* Input parameter: op*/
-	int i = 0; /*Initialize index variable*/
+	int i = 0;
 
-	while (ops[i].op)
+	while (ops[i].op != NULL)
 	{
-	/*Loop until the end of the array*/
-	if (strcmp(ops[i].op, op) == 0)
-	/**
-	 * Compare the input operator with the
-	 * current operator
-	 * Return the corresponding function pointer
-	 * the operator matches
-	 */
-	{
-		return (ops[i].f);
+		if (*(ops[i].op) == *(s))
+			return (ops[i].f);
+		i++;
 	}
-
-	i++; /*Increment the index variable*/
-	}
-	/**
-	 *Print an error message if the operator is not found
-	 */
 	printf("Error: Operator not found\n");
-	exit(99); /*Exit the program with an error code*/
+	exit(99);
 }
 
