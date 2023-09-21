@@ -1,6 +1,11 @@
 #include <string.h>
 #include "lists.h"
-
+/**
+ * print_list - a function that takes a pointer to the head of a linked list.
+ * @h: head node of the linked list.
+ *
+ *Return: number of nodes in the linked list.
+ */
 
 size_t print_list(const list_t *h)
 {
