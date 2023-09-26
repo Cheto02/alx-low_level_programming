@@ -1,45 +1,53 @@
-#include "lists.h"
+#include <stdio.h> /* Include standard input and output library */
+#include <stdlib.h> /* Include standard library */
+#include "lists.h" /* Include lists header file */
 
 /**
- * print_listint_safe - Prints a listint_t linked list
- * @head: Pointer to the head of the linked list
- *
- * Return: The number of nodes in the list
+ * print_listint_safe - prints a listint_t linked list
+ * @head: pointer to the start of the list
+ * Return: the number of nodes in the list
  */
-size_t print_listint_safe(const listint_t *head)
+size_t print_listint_safe(const listint_t *head) /* Function definition */
 {
-	const listint_t *slow = head;
-	const listint_t *fast = head;
-	size_t count = 0;
+	size_t num = 0; /* Initialize node counter */
+	const listint_t *slow, *fast, *marker; /* Declare pointers */
 
-	/* Check if the list is empty */
-	if (head == NULL)
+	if (head == NULL) /* Check if head is NULL */
+	exit(98); /* If true, exit program with status 98 */
+
+	slow = head; /* Initialize slow pointer to head */
+	fast = head; /* Initialize fast pointer to head */
+	marker = head; /* Initialize marker pointer to head */
+	/* Loop while slow, fast and fast->next are not NULL */
+	while (slow && fast && fast->next)
 	{
-		exit(98);
+	slow = slow->next; /* Move slow pointer one step */
+	fast = fast->next->next; /* Move fast pointer two steps */
+
+	if (slow == fast) /* Check if slow & ointers meet, inditg a loop */
+	{
+	slow = head; /* Reset slow pointer to head */
+	while (slow != fast) /* Loop until slow and fast pointers meet again */
+	{
+	printf("[%p] %d\n", (void *)slow, slow->n); /* Print node addrs,val */
+	num++; /* Increment node counter */
+	slow = slow->next; /* Move slow pointer one step */
+	fast = fast->next; /* Move fast pointer one step */
 	}
 
-	/* Loop detection using Floyd's cycle-finding algorithm */
-	while (fast != NULL && fast->next != NULL)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-
-		/* If a loop is detected */
-		if (slow == fast)
-		{
-			printf("-> [%p] %d\n", (void *)slow, slow->n);
-			exit(98);
-		}
-
-		/* Print the current node and increment the count */
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		count++;
-	}
-
-	/* Print the last node and increment the count */
 	printf("[%p] %d\n", (void *)slow, slow->n);
-	count++;
+	num++; /* Increment node counter */
+	return (num); /* Return number of nodes printed */
+	}
+	}
 
-	return (count);
+	while (marker) /* Loop while marker is not NULL */
+	{
+	printf("[%p] %d\n", (void *)marker, marker->n);
+	num++; /* Increment node counter */
+	marker = marker->next; /* Move marker pointer one step */
+	}
+
+	return (num); /* Return number of nodes printed if no loop  detected */
 }
 
