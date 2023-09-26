@@ -1,52 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
-
-/**
- * print_listint_safe - prints a listint_t linked list
- * @head: pointer to the start of the list
- * Return: the number of nodes in the list
- */
-size_t print_listint_safe(const listint_t *head)
+/* free_listint_safe - frees a listint_t list */
+/* Parameters: */
+/*     h: double pointer to the start of the list */
+/* Return: */
+/*     the number of nodes in the list */
+size_t free_listint_safe(listint_t **h)
 {
-	size_t num = 0;
-	const listint_t *slow, *fast, *marker;
+    size_t num = 0;
+    listint_t *temp;
 
-	if (head == NULL)
-	exit(98);
+    if (h == NULL || *h == NULL)
+        return (0);
 
-	slow = head;
-	fast = head;
-	marker = head;
+    while (*h)
+    {
+        num++;  /* Increment the count of nodes */
+        temp = (*h)->next;  /* Store the next node in temp */
+        free(*h);  /* Free the current node */
+        *h = temp;  /* Move to the next node */
+    }
 
-	while (slow && fast && fast->next)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-
-		if (slow == fast)
-		{
-			slow = head;
-			while (slow != fast)
-			{
-				printf("[%p] %d\n", (void *)slow, slow->n);
-				num++;
-				slow = slow->next;
-				fast = fast->next;
-			}
-
-			printf("[%p] %d\n", (void *)slow, slow->n);
-			num++;
-			return (num);
-		}
-	}
-
-	while (marker)
-	{
-		printf("[%p] %d\n", (void *)marker, marker->n);
-		num++;
-		marker = marker->next;
-	}
-	return (num);
+    return (num);  /* Return the number of nodes */
 }
 
