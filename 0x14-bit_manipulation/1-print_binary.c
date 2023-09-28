@@ -2,7 +2,7 @@
 
 /**
  * print_binary - a function that Prints the binary representation of a numbe
- N*   @N  
+ * @n: binary string
  * Return: nothing (void)
  */
 
