@@ -33,50 +33,42 @@ int append_text_to_file(const char *filename, char *text_content)
 	int fd_file_from, fd_file_to;
 	int bytes_read, bytes_written;
 	char buffer[BUFFER_SIZE];
-
 	if (filename == NULL || text_content == NULL)
 	{
 		return (-1);
 	}
-
 	fd_file_from = open(filename, O_RDONLY);
 	if (fd_file_from == -1)
 	{
 		print_error_and_exit("Error: Can't read from file", filename, -1);
 	}
-
 	fd_file_to = open(text_content, O_WRONLY | O_CREAT, 0664);
 	if (fd_file_to == -1)
 	{
-		print_error_and_exit("Error: Can't create or open file", text_content, -1);
+	print_error_and_exit("Error: Can't create or open file", text_content, -1);
 	}
-
 	if (ftruncate(fd_file_to, 0) == -1)
 	{
-		print_error_and_exit("Error: Can't initialize file", text_content, -1);
+	print_error_and_exit("Error: Can't initialize file", text_content, -1);
 	}
-
 	bytes_read = read(fd_file_from, buffer, BUFFER_SIZE);
 	while (bytes_read > 0)
 	{
 		bytes_written = write(fd_file_to, buffer, bytes_read);
 		if (bytes_written != bytes_read)
 		{
-			print_error_and_exit("Error: Can't write to file", text_content, -1);
+		print_error_and_exit("Error: Can't write to file", text_content, -1);
 		}
 		bytes_read = read(fd_file_from, buffer, BUFFER_SIZE);
 	}
-
 	if (close(fd_file_from) == -1)
 	{
-	print_error_and_exit("Error: Can't close file descriptor fd", "file_from", -100);
+	print_error_and_exit("Error: Can't close fd", "file_from", -100);
 	}
-
 	if (close(fd_file_to) == -1)
 	{
-	print_error_and_exit("Error: Can't close file descriptor fd", "file_to", -100);
+	print_error_and_exit("Error: Can't close fd", "file_to", -100);
 	}
-
 	return (0);
 }
 /**
@@ -90,4 +82,3 @@ void print_error_and_exit(const char *error_message, const char *file_name, int 
 	dprintf(2, "%s %s\n", error_message, file_name);
 	exit(exit_code);
 }
-
